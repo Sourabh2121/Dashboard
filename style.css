@@ -1,0 +1,207 @@
+
+
+    :root{
+      --body-color:#E4E9F7;
+      --sidebar-color:#FFF;
+      --primary-color:#695cFE;
+      --primary-color-light:#F6F5FF;
+      --toggle-color:#DDD;
+      --text-color:#707070;
+
+      --tran3:all 0.3s ease-in-out;
+      --tran4:all 0.4s ease-in-out;
+      --tran5:all 0.5s ease-in-out;
+    }
+    body.dark{
+      --body-color:#18191A;
+      --sidebar-color:#242526;
+      --primary-color:#3A3B3C;
+      --primary-color-light:#3A3B3C;
+      --toggle-color:#FFF;
+      --text-color:#CCC;
+
+    }
+    body{
+      background: var(--body-color);
+      transition: var(--tran3);
+    }
+    #sidebar-nav{
+     background:var(--sidebar-color);
+     width: 250px;
+     transition: var(--tran3);
+     position: fixed;
+     height: 100%;
+     top: 0px;
+     left: 0px;
+     padding: 12px;
+     transition: var(--tran3);
+     z-index:1050;
+   }
+   .silologo{
+    height: 45px;
+  }
+  #sidebar-nav .text, .mode-text{
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: var(--tran3);
+  }
+  #sidebar-nav.close{
+    width: 78px;
+  }
+  #sidebar-nav.close .text, #sidebar-nav.close .mode-text{
+    opacity: 0;
+    transition: var(--tran3);
+  }
+  .sidebar .toggle{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    color: var(--sidebar-color);
+    right: -25px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .menu-bar{
+    height: calc(100% - 50px);
+  }
+  .sidebar .menu-bar li{
+    margin-top: 10px;
+    list-style: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    border-radius: 6px;
+  }
+  .sidebar .menu-bar .icon{
+    font-size: 22px;
+    color: var(--text-color);
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    transition: var(--tran3);
+  }
+  .sidebar .menu-bar li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--tran3);
+    border-radius: 6px;
+    color: var(--text-color);
+  }
+  .sidebar .menu-bar li a:hover{
+    background: var(--primary-color);
+    color: var(--sidebar-color);
+  }
+  .dark .sidebar .menu-bar li a:hover .icon{
+    color: var(--text-color);
+  }
+  .sidebar .menu-bar li a:hover .icon,
+  #sidebar-nav li:hover .text{
+    color: var(--sidebar-color);
+  }
+  .menu-bar .search-box{
+    background: var(--primary-color-light);
+  }
+  .menu-bar .search-box input{
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color-light);
+    outline: none;
+    border: none;
+    border-radius:0px 6px 6px 0px;
+    transition: var(--tran3);
+  }
+  .menu-bar .mode{
+    background: var(--primary-color-light);
+    position: relative;
+  }
+  .menu-bar .mode .toggle-switch{
+    position: absolute;
+    min-width: 60px;
+    height: 100%;
+    right: -4px;
+    background: var(--primary-color-light);
+  }
+  .menu-bar .mode .toggle-switch .switch{
+    height: 22px;
+    width: 44px;
+    background: var(--toggle-color);
+    border-radius: 25px;
+    position: relative;
+  }
+  .toggle-switch .switch:before{
+    height: 15px;
+    width: 15px;
+    background: var(--sidebar-color);
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    cursor: pointer;
+    transition: var(--tran3);
+  }
+  .dark .toggle-switch .switch:before{
+    left: 25px;
+  }
+  .dark .sidebar-header .toggle{
+    color: var(--text-color);
+  }
+   .sidebar.close .toggle{
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+/*content-body*/
+  .section-content{
+    width: calc(100% - 250px);
+    position: relative;
+    left: 250px;
+    transition: var(--tran3);
+  }
+
+  .sidebar.close ~ .section-content{
+    left:78px;
+    width: calc(100% - 78px);
+  }
+
+/*content-header*/
+  header{
+    background-color: var(--sidebar-color);
+    height: 62px;
+    transition: var(--tran3);
+  }
+  header .text{    
+    color: var(--text-color);
+  }
+  header nav .navbar-nav {
+    grid-gap: 20px;
+  }
+  header nav li a {
+    color: red;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+  }
+  @media screen and (min-width: 320px) and (max-width:992px){
+    .section-content{
+      left: 0px;
+      width: 100%;
+    }
+    .toggle{
+      display: none;
+    }
+  }
